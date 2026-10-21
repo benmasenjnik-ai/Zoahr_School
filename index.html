@@ -34,6 +34,13 @@
   }
   .deco { position: absolute; pointer-events: none; }
 
+  /* אלמנטים מפוזרים בצדדים – רק במסכים רחבים */
+  body { position: relative; overflow-x: hidden; }
+  .page { z-index: 1; }
+  .sides { display: none; position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .sides svg { position: absolute; height: auto; }
+  @media (min-width: 900px) { .sides { display: block; } }
+
   /* hero */
   .name {
     display: inline-block;
@@ -128,11 +135,63 @@
       <polygon points="2,26 98,2 60,58 44,36" fill="#fff" stroke="#1456b8" stroke-width="3" stroke-linejoin="round"/>
       <polygon points="44,36 98,2 54,46" fill="#9fd0f5"/>
     </symbol>
+    <symbol id="cloud" viewBox="0 0 120 64">
+      <path d="M22 56a17 17 0 0 1 1-34 24 24 0 0 1 45-5 20 20 0 0 1 32 12 15 15 0 0 1 0 27z" fill="#fff" fill-opacity=".85" stroke="#b5d9f6" stroke-width="3" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="spark" viewBox="0 0 50 50">
+      <g fill="none" stroke="#f8b82b" stroke-width="5" stroke-linecap="round"><path d="M8 40 L18 24"/><path d="M24 44 L28 18"/><path d="M40 38 L32 22"/></g>
+    </symbol>
+    <symbol id="heart" viewBox="0 0 24 22">
+      <path d="M12 20C3 13 2 8 5 5c3-3 6-1 7 2 1-3 4-5 7-2 3 3 2 8-7 15z" fill="none" stroke="#1456b8" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="trail" viewBox="0 0 160 90">
+      <path d="M4 82C30 84 52 62 40 46 32 34 18 42 26 54 34 64 70 52 98 36" fill="none" stroke="#1456b8" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round"/>
+      <use href="#plane" x="94" y="6" width="62" height="38"/>
+    </symbol>
+    <symbol id="books" viewBox="0 0 160 120">
+      <g>
+        <rect x="8" y="4" width="136" height="26" rx="5" fill="#1456b8"/><rect x="134" y="8" width="8" height="18" fill="#f6efdf"/><rect x="24" y="14" width="50" height="6" rx="3" fill="#fff" fill-opacity=".75"/>
+        <rect x="0" y="32" width="148" height="26" rx="5" fill="#8cc6f2"/><rect x="138" y="36" width="8" height="18" fill="#f6efdf"/><rect x="16" y="42" width="56" height="6" rx="3" fill="#0f2a6b" fill-opacity=".6"/>
+        <rect x="10" y="60" width="140" height="26" rx="5" fill="#f8b82b"/><rect x="140" y="64" width="8" height="18" fill="#f6efdf"/><rect x="26" y="70" width="48" height="6" rx="3" fill="#0f2a6b" fill-opacity=".6"/>
+        <rect x="2" y="88" width="152" height="28" rx="5" fill="#0f2a6b"/><rect x="144" y="92" width="8" height="20" fill="#f6efdf"/><rect x="18" y="99" width="60" height="6" rx="3" fill="#fff" fill-opacity=".75"/>
+      </g>
+    </symbol>
+    <symbol id="scroll" viewBox="0 0 160 90">
+      <rect x="24" y="18" width="106" height="52" fill="#fffaf0" stroke="#e3d8bd" stroke-width="2"/>
+      <ellipse cx="24" cy="44" rx="10" ry="26" fill="#f3ead6" stroke="#e3d8bd" stroke-width="2"/>
+      <ellipse cx="130" cy="44" rx="10" ry="26" fill="#fffaf0" stroke="#e3d8bd" stroke-width="2"/>
+      <rect x="70" y="18" width="14" height="52" fill="#1456b8"/>
+      <ellipse cx="58" cy="38" rx="16" ry="9" transform="rotate(-18 58 38)" fill="#1456b8"/>
+      <ellipse cx="96" cy="38" rx="16" ry="9" transform="rotate(18 96 38)" fill="#1456b8"/>
+      <polygon points="72,46 64,78 76,70" fill="#0f2a6b"/><polygon points="82,46 92,78 80,70" fill="#0f2a6b"/>
+      <circle cx="77" cy="42" r="7" fill="#0f2a6b"/>
+    </symbol>
     <symbol id="star" viewBox="0 0 100 100">
       <polygon points="50,4 62,37 97,38 69,59 80,93 50,73 20,93 31,59 3,38 38,37"/>
     </symbol>
   </defs>
 </svg>
+
+<!-- קישוטים בצדדי העמוד (מופיעים רק במחשב) -->
+<div class="sides" aria-hidden="true">
+  <!-- צד שמאל -->
+  <svg viewBox="0 0 100 70" style="top:6%; left:5%; width:clamp(90px,10vw,150px); transform:rotate(-14deg)"><use href="#cap"/></svg>
+  <svg viewBox="0 0 50 50" style="top:5%; left:17%; width:40px"><use href="#spark"/></svg>
+  <svg viewBox="0 0 120 64" style="top:24%; left:2%; width:clamp(90px,10vw,160px)"><use href="#cloud"/></svg>
+  <svg viewBox="0 0 100 100" style="top:40%; left:13%; width:20px; fill:#8cc6f2"><use href="#star"/></svg>
+  <svg viewBox="0 0 160 90" style="top:50%; left:4%; width:clamp(100px,11vw,170px)"><use href="#trail"/></svg>
+  <svg viewBox="0 0 24 22" style="top:68%; left:14%; width:26px"><use href="#heart"/></svg>
+  <svg viewBox="0 0 160 120" style="bottom:5%; left:4%; width:clamp(100px,11vw,170px)"><use href="#books"/></svg>
+
+  <!-- צד ימין -->
+  <svg viewBox="0 0 160 90" style="top:8%; right:5%; width:clamp(100px,11vw,170px); transform:scaleX(-1)"><use href="#trail"/></svg>
+  <svg viewBox="0 0 50 50" style="top:21%; right:15%; width:36px; transform:scaleX(-1)"><use href="#spark"/></svg>
+  <svg viewBox="0 0 120 64" style="top:31%; right:3%; width:clamp(90px,10vw,160px)"><use href="#cloud"/></svg>
+  <svg viewBox="0 0 100 70" style="top:46%; right:7%; width:clamp(70px,8vw,110px); transform:rotate(16deg)"><use href="#cap"/></svg>
+  <svg viewBox="0 0 100 100" style="top:62%; right:15%; width:18px; fill:#f8b82b"><use href="#star"/></svg>
+  <svg viewBox="0 0 24 22" style="top:58%; right:4%; width:24px"><use href="#heart"/></svg>
+  <svg viewBox="0 0 160 90" style="bottom:6%; right:4%; width:clamp(110px,12vw,190px)"><use href="#scroll"/></svg>
+</div>
 
 <div class="page">
 
