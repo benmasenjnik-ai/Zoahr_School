@@ -7,133 +7,126 @@
 <meta name="description" content="בחירות למועצת התלמידים – כיתה ה' 2, בית ספר אופירה נבון">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #12306b;
-    --blue: #1b64ab;
-    --blue-2: #1f8fcf;
-    --gold: #b98a12;
-    --gold-light: #e8b93c;
-    --sky-1: #cfe8f8;
-    --sky-2: #eef5fc;
-    --sky-3: #c9d8f3;
+    --navy: #0f2a6b;
+    --blue: #1456b8;
+    --sky: #8cc6f2;
+    --yellow: #f8b82b;
   }
   * { box-sizing: border-box; margin: 0; }
   body {
-    font-family: "Heebo", "Arial Hebrew", Arial, sans-serif;
+    font-family: "Rubik", "Arial Hebrew", Arial, sans-serif;
     color: var(--navy);
-    background: #b9d3ef;
-    padding: 10px;
+    background: linear-gradient(180deg, #d4eafb 0%, #e9f4fd 50%, #cde4f8 100%);
+    min-height: 100vh;
     line-height: 1.35;
     -webkit-text-size-adjust: 100%;
   }
-
   .page {
     position: relative;
     overflow: hidden;
-    max-width: 680px;
+    max-width: 640px;
     margin: 0 auto;
-    border: 2px solid #8db4e0;
-    border-radius: 8px;
-    background: linear-gradient(170deg, var(--sky-1) 0%, var(--sky-2) 45%, var(--sky-3) 100%);
-    padding: 0 22px 28px;
+    padding: 0 22px 32px;
     text-align: center;
   }
-
-  /* decorative SVGs */
   .deco { position: absolute; pointer-events: none; }
-  .bunting { top: 0; width: 46%; max-width: 280px; }
-  .bunting.l { left: 0; }
-  .bunting.r { right: 0; transform: scaleX(-1); }
-  .star { width: 16px; fill: var(--gold-light); }
 
   /* hero */
   .name {
-    position: relative;
-    margin-top: 78px;
-    font-size: clamp(1.15rem, 4.4vw, 1.5rem);
-    font-weight: 700;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 9px 30px;
+    background: var(--yellow);
+    clip-path: polygon(0 14%, 3% 0, 97% 6%, 100% 20%, 98% 88%, 94% 100%, 4% 94%, 1% 80%);
+    font-size: clamp(1.1rem, 4.4vw, 1.45rem);
+    font-weight: 800;
   }
-  .photo-wrap { position: relative; width: clamp(170px, 46vw, 220px); margin: 20px auto 0; }
+  .photo-wrap { position: relative; width: clamp(170px, 46vw, 220px); margin: 30px auto 0; }
   .photo {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 6px solid var(--gold-light);
-    box-shadow: 0 0 0 5px #fff, 0 8px 22px rgba(18,48,107,.22);
+    border: 6px solid var(--yellow);
+    box-shadow: 0 0 0 5px #fff, 0 8px 22px rgba(15,42,107,.22);
     overflow: hidden;
     background: var(--navy);
     display: grid;
     place-items: center;
     font-size: 4.5rem;
     font-weight: 800;
-    color: var(--gold-light);
+    color: var(--yellow);
   }
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .photo-wrap .cap-a { width: 84px; top: -34px; left: -36px; transform: rotate(-14deg); }
-  .photo-wrap .cap-b { width: 52px; top: 6px; right: -52px; transform: rotate(18deg); }
-  .photo-wrap .plane-a { width: 50px; bottom: 6px; left: -74px; transform: rotate(-8deg); }
+  .cap   { width: 92px; top: -42px; left: -30px; transform: rotate(-12deg); }
+  .spark { width: 46px; top: -22px; right: -46px; }
+  .trail { width: 84px; top: 34%; left: -88px; }
+  .heart { width: 24px; right: -54px; bottom: 28px; }
 
   h1 {
-    margin: 30px 0 22px;
+    margin: 32px 0 8px;
     font-size: clamp(2.1rem, 8.4vw, 3.2rem);
     font-weight: 900;
-    line-height: 1.12;
+    line-height: 1.15;
     text-wrap: balance;
   }
-  h1 em, .slogans em { font-style: normal; color: var(--gold); }
+  h1 .zohar {
+    color: var(--yellow);
+    -webkit-text-stroke: 7px var(--navy);
+    paint-order: stroke fill;
+    padding: 0 2px;
+  }
+  .hl {
+    background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%);
+    padding: 0 .12em;
+  }
 
-  .slogans p { font-size: clamp(1.15rem, 4.6vw, 1.45rem); font-weight: 700; }
-  .slogans p + p { margin-top: 10px; color: var(--blue-2); }
+  .note { margin-bottom: 22px; font-size: clamp(1rem, 3.8vw, 1.15rem); font-weight: 500; color: var(--blue); }
 
-  /* promises */
+  .slogan { font-size: clamp(1.15rem, 4.6vw, 1.45rem); font-weight: 700; }
+
+  /* promises as a stack of books */
   h2 { margin: 36px 0 16px; font-size: clamp(1.3rem, 5vw, 1.7rem); font-weight: 800; }
-  ul { list-style: none; padding: 0; display: grid; gap: 12px; max-width: 460px; margin: 0 auto; }
+  ul { list-style: none; padding: 0; display: grid; gap: 5px; max-width: 420px; margin: 0 auto; }
   li {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 14px 18px;
-    border-radius: 14px;
-    color: #fff;
+    padding: 14px 20px;
+    border-radius: 6px 10px 10px 6px;
+    border-left: 10px solid #f6efdf;
     font-size: clamp(1.15rem, 4.6vw, 1.4rem);
     font-weight: 700;
-    background: var(--blue);
+    box-shadow: 0 3px 8px rgba(15,42,107,.15);
   }
-  li:nth-child(even) { background: var(--blue-2); }
-  li svg { width: 16px; flex: none; fill: var(--gold-light); }
+  li:nth-child(1) { background: var(--blue); color: #fff; transform: translateX(-8px); }
+  li:nth-child(2) { background: var(--sky);  color: var(--navy); transform: translateX(6px); }
+  li:nth-child(3) { background: var(--yellow); color: var(--navy); transform: translateX(-4px); }
+  li:nth-child(4) { background: var(--navy); color: #fff; transform: translateX(8px); }
 
-  /* closing */
   .closing {
-    margin: 36px 0 0;
+    margin-top: 40px;
     font-size: clamp(1.7rem, 7vw, 2.4rem);
     font-weight: 900;
-    line-height: 1.18;
+    line-height: 1.25;
     text-wrap: balance;
   }
-  .closing span { color: var(--gold); }
-  .closing::after {
-    content: ""; display: block; width: 90px; height: 5px; border-radius: 3px;
-    background: var(--gold-light); margin: 16px auto 0;
-  }
-
-  footer { margin-top: 26px; font-size: .95rem; font-weight: 500; color: var(--blue); }
+  footer { margin-top: 28px; font-size: .95rem; font-weight: 500; color: var(--blue); }
 </style>
 </head>
 <body>
 
-<!-- ספריית צורות (מוטמעות בקובץ, אין צורך בתמונות נוספות) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="cap" viewBox="0 0 100 70">
-      <path d="M24 38v15c14 12 38 12 52 0V38L50 50z" fill="#26262c"/>
-      <polygon points="50,4 98,26 50,48 2,26" fill="#16161a"/>
-      <polygon points="50,4 98,26 50,26" fill="#34343b"/>
-      <path d="M50 26 L88 30 V56" fill="none" stroke="#e8b93c" stroke-width="3" stroke-linecap="round"/>
-      <rect x="84" y="54" width="8" height="14" rx="3" fill="#e8b93c"/>
+      <path d="M24 38v15c14 12 38 12 52 0V38L50 50z" fill="#0c1f52"/>
+      <polygon points="50,4 98,26 50,48 2,26" fill="#14295f"/>
+      <polygon points="50,4 98,26 50,26" fill="#22408a"/>
+      <path d="M50 26 L88 30 V54" fill="none" stroke="#f8b82b" stroke-width="3" stroke-linecap="round"/>
+      <rect x="84" y="52" width="8" height="15" rx="3" fill="#f8b82b"/>
     </symbol>
     <symbol id="plane" viewBox="0 0 100 60">
-      <polygon points="2,26 98,2 60,58 44,36" fill="#fff" stroke="#aac4e4" stroke-width="1.5" stroke-linejoin="round"/>
-      <polygon points="44,36 98,2 54,46" fill="#d7e5f6"/>
+      <polygon points="2,26 98,2 60,58 44,36" fill="#fff" stroke="#1456b8" stroke-width="3" stroke-linejoin="round"/>
+      <polygon points="44,36 98,2 54,46" fill="#9fd0f5"/>
     </symbol>
     <symbol id="star" viewBox="0 0 100 100">
       <polygon points="50,4 62,37 97,38 69,59 80,93 50,73 20,93 31,59 3,38 38,37"/>
@@ -143,62 +136,51 @@
 
 <div class="page">
 
-  <!-- דגלונים בפינות -->
-  <svg class="deco bunting l" viewBox="0 0 300 80" aria-hidden="true">
-    <path d="M0 5 Q150 45 300 5" fill="none" stroke="#c9a24a" stroke-width="2"/>
-    <polygon points="14,12 46,12 30,46" fill="#fff"/>
-    <polygon points="59,20 91,20 75,54" fill="#8fc6ee"/>
-    <polygon points="104,24 136,24 120,58" fill="#3f86c9"/>
-    <polygon points="149,25 181,25 165,59" fill="#fff"/>
-    <polygon points="194,22 226,22 210,56" fill="#8fc6ee"/>
-    <polygon points="239,15 271,15 255,49" fill="#3f86c9"/>
-  </svg>
-  <svg class="deco bunting r" viewBox="0 0 300 80" aria-hidden="true">
-    <path d="M0 5 Q150 45 300 5" fill="none" stroke="#c9a24a" stroke-width="2"/>
-    <polygon points="14,12 46,12 30,46" fill="#fff"/>
-    <polygon points="59,20 91,20 75,54" fill="#8fc6ee"/>
-    <polygon points="104,24 136,24 120,58" fill="#3f86c9"/>
-    <polygon points="149,25 181,25 165,59" fill="#fff"/>
-    <polygon points="194,22 226,22 210,56" fill="#8fc6ee"/>
-    <polygon points="239,15 271,15 255,49" fill="#3f86c9"/>
-  </svg>
-
-  <!-- כוכבים מפוזרים -->
-  <svg class="deco star" style="top:130px; right:5%" aria-hidden="true"><use href="#star"/></svg>
-  <svg class="deco star" style="top:330px; left:5%; width:12px" aria-hidden="true"><use href="#star"/></svg>
-  <svg class="deco star" style="top:520px; right:7%; width:12px" aria-hidden="true"><use href="#star"/></svg>
+  <!-- שני כוכבים עדינים -->
+  <svg class="deco" style="top:36%; right:6%; width:20px; fill:#8cc6f2" viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>
+  <svg class="deco" style="top:62%; left:6%; width:14px; fill:#8cc6f2" viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>
 
   <header>
     <p class="name">זוהר מסנז'ניק למועצת התלמידים</p>
 
     <div class="photo-wrap">
-      <!-- התמונה צריכה להיות באותה תיקייה בשם zohar.jpg -->
+      <!-- התמונה צריכה להיות באותה תיקייה בשם zohar1.jpg -->
       <div class="photo">
-        <img src="zohar.jpg" alt="זוהר מסנז'ניק" onerror="this.remove(); this.parentNode.textContent='ז';">
+        <img src="zohar1.jpg" alt="זוהר מסנז'ניק" onerror="var p=this.parentNode; p.textContent='ז';">
       </div>
-      <svg class="deco cap-a" viewBox="0 0 100 70" aria-hidden="true"><use href="#cap"/></svg>
-      <svg class="deco cap-b" viewBox="0 0 100 70" aria-hidden="true"><use href="#cap"/></svg>
-      <svg class="deco plane-a" viewBox="0 0 100 60" aria-hidden="true"><use href="#plane"/></svg>
+
+      <svg class="deco cap" viewBox="0 0 100 70" aria-hidden="true"><use href="#cap"/></svg>
+
+      <svg class="deco spark" viewBox="0 0 50 50" aria-hidden="true" fill="none" stroke="#f8b82b" stroke-width="5" stroke-linecap="round">
+        <path d="M8 40 L18 24"/><path d="M24 44 L28 18"/><path d="M40 38 L32 22"/>
+      </svg>
+
+      <svg class="deco trail" viewBox="0 0 160 90" aria-hidden="true">
+        <path d="M4 82 C30 84 52 62 40 46 C32 34 18 42 26 54 C34 64 70 52 98 36" fill="none" stroke="#1456b8" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round"/>
+        <use href="#plane" x="94" y="6" width="62" height="38"/>
+      </svg>
+
+      <svg class="deco heart" viewBox="0 0 24 22" aria-hidden="true" fill="none" stroke="#1456b8" stroke-width="2" stroke-linejoin="round">
+        <path d="M12 20 C3 13 2 8 5 5 C8 2 11 4 12 7 C13 4 16 2 19 5 C22 8 21 13 12 20Z"/>
+      </svg>
     </div>
 
-    <h1>תבחרו <em>זוהר</em>,<br>יהיה לכם <em>תואר</em>!</h1>
+    <h1>תבחרו <span class="zohar">זוהר</span>,<br>יהיה לכם <span class="hl">תואר</span>!</h1>
+    <p class="note">(תקף רק לתואר ראשון 😊)</p>
   </header>
 
   <main>
-    <div class="slogans">
-      <p>ה’ 2 הגיע הזמן לבחור נכון, עם זוהר נגיע <em>לנצחון</em>!</p>
-      <p>יהיה פה שמח, יהיה פה נעים, נעשה ביחד דברים <em>מדהימים</em></p>
-    </div>
+    <p class="slogan">ה’ 2 הגיע הזמן לבחור נכון, עם זוהר נגיע <span class="hl">לנצחון</span>!</p>
 
     <h2>אני אפעל כדי שבית הספר יהיה:</h2>
     <ul>
-      <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>נעים ומכבד</li>
-      <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>מושקע ומהנה</li>
-      <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>ללא אלימות!</li>
-      <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>מקום טוב וכיף לכל אחד</li>
+      <li>נעים ומכבד</li>
+      <li>מושקע ומהנה</li>
+      <li>ללא אלימות!</li>
+      <li>מקום טוב וכיף לכל אחד</li>
     </ul>
 
-    <p class="closing">ביחד נעשה את בית הספר שלנו <span>טוב יותר!</span></p>
+    <p class="closing">ביחד נעשה את בית הספר שלנו <span class="hl">טוב יותר!</span></p>
   </main>
 
   <footer>מועצת התלמידים · כיתה ה’ 2 · בית ספר אופירה נבון</footer>
